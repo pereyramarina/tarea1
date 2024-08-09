@@ -40,8 +40,6 @@ body, html {
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
-
-
 .parent {
     background-size: 200% 200%;
     animation: backgroundAnimation 8s ease infinite;
