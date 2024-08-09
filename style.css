@@ -1,0 +1,87 @@
+/* Estilos generales */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f7f7f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilos para el div padre */
+.parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 1000px; /* Ocupa toda la altura de la ventana */
+    width: 1000px;   /* Ocupa todo el ancho */
+    background: linear-gradient(135deg, #73a5ff, #5477f5);
+    overflow: hidden;
+}
+
+/* Estilos para el div hijo */
+.child {
+    padding: 40px;
+    background-color: #fff;
+    color: #333;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+/* Efecto hover en el div hijo */
+.child:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.parent {
+    background-size: 200% 200%;
+    animation: backgroundAnimation 8s ease infinite;
+}
+
+/* Estilos adicionales para el texto del div hijo */
+.child::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.child:hover::after {
+    opacity: 1;
+}
+
+/* Efecto de onda en el fondo del div hijo */
+@keyframes wave {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+.child::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -100%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.3) 0%, transparent 50%);
+    animation: wave 4s infinite linear;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.5;
+}
